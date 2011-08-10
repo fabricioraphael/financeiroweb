@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Insert title here</title>
+</h:head>
+<h:body>
+	<center>
+		<h1>Views User</h1>
+		<hr />
+		Name:	<h:outputText value="#{userBean.name}" /> <br />
+		e-Mail:	<h:outputLink value="mailto:#{userBean.email}">
+				<h:outputText value="#{userBean.email}" />
+				</h:outputLink> <br />
+		Password:<h:outputText value="#{userBean.password}" /> <br />
+		<hr />
+		<h:form>
+			<h:commandLink action="home" value="Home" />
+		</h:form>
+	</center>
+</h:body>
+</html>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:sec="http://www.springframework.org/security/facelets/tags">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Principal</title>
+</h:head>
+<h:body>
+	<center>
+		<h1>Gerenciador Financeiro Pessoal</h1>
+		usuario logado #{request.remoteUser}
+		<br />
+		<h:form>
+		<sec:ifAnyGranted roles="ROLE_ADMINISTRADOR">
+			<h:commandLink action="../admin/principal.xhtml" title="Administrativo">
+				<h:graphicImage library="imagens" name="administrativo16.png" />
+			</h:commandLink>
+		</sec:ifAnyGranted>
+		<a onclick="document.location='#{request.contextPath}/j_spring_security_logout'" title="Sair">
+			<h:graphicImage library="imagens" name="logout16.png" />
+		</a>		
+		</h:form>
+	</center>
+</h:body>
+</html>

@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Cadastro de Usuarios</title>
+</h:head>
+
+<h:body>
+	<center>
+		<h1>Cadastro de Usuarios</h1>
+		<h:messages />
+		<h:form id="cadastro">
+			<h:inputHidden value="#{usuarioBean.usuario.id}" />
+			<h:inputHidden value="#{usuarioBean.usuario.ativo}" />
+			<h:inputHidden value="#{usuarioBean.destinoSalvar}"/>
+
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Nome:" for="nome" />
+				<h:inputText id="nome" label="Nome"
+					value="#{usuarioBean.usuario.nome}" size="30" maxlength="30"
+					required="true" requiredMessage="Campo Nome requerido.">
+					<f:validateLength minimum="10" maximum="30" />
+				</h:inputText>
+
+				<h:outputLabel value="Data Nascimento:" for="data" />
+				<h:inputText id="data" label="Data Nascimento"
+					value="#{usuarioBean.usuario.nascimento}" size="10" maxlength="10" >
+					<f:convertDateTime dateStyle="short"/>
+				</h:inputText>
+
+				<h:outputLabel value="Celular:" for="celular" />
+				<h:inputText id="celular" label="Celular"
+					value="#{usuarioBean.usuario.celular}" size="10" />
+
+				<h:outputLabel value="e-Mail:" for="email" />
+				<h:panelGroup>
+					<h:inputText id="email" label="e-Mail"
+						value="#{usuarioBean.usuario.email}" size="50" maxlength="50"
+						required="true" validatorMessage="e-mail invalido">
+						<f:validateRegex pattern="[a-zA-Z0-9\-\_\.]+@[a-zA-Z0-9\-\_\.]+" />
+					</h:inputText>
+					<h:message for="email" />
+				</h:panelGroup>
+
+				<h:outputLabel value="Idioma:" for="idioma" />
+				<h:selectOneMenu id="idioma" value="#{usuarioBean.usuario.idioma}">
+					<f:selectItem itemValue="pt_BR" itemLabel="Portugues" />
+					<f:selectItem itemValue="en_US" itemLabel="English" />
+					<f:selectItem itemValue="es_ES" itemLabel="Espanol" />
+				</h:selectOneMenu>
+
+				<h:outputLabel value="Login:" for="login" />
+				<h:inputText id="login" label="Login"
+					value="#{usuarioBean.usuario.login}" size="15" maxlength="15"
+					required="true"
+					validatorMessage="Login deve ter no minimo 5 e no maximo 15 caracteres e so pode ter os simbolos '.' e '_' .">
+					<f:validateRegex pattern="([a-z]|[0-9]|[.]){5,15}" />
+				</h:inputText>
+
+				<h:outputLabel value="Senha:" for="senha" />
+				<h:inputSecret id="senha" label="Senha"
+					value="#{usuarioBean.usuario.senha}" size="10" maxlength="10"
+					required="true" />
+
+				<h:outputLabel value="Confirma Senha:" for="confirmaSenha" />
+				<h:inputSecret id="confirmaSenha" label="Confirma Senha"
+					value="#{usuarioBean.confirmaSenha}" size="10" maxlength="10"
+					required="true" />
+			</h:panelGrid>
+			<h:commandButton action="#{usuarioBean.salvar}" value="Salvar" />
+		</h:form>
+
+	</center>
+</h:body>
+</html>

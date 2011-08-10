@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Frameset//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-frameset.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	<title>Page-User</title>
+</h:head>
+
+<h:body>
+	<center>
+		<h1>Register User</h1>
+		<hr />
+		<h:form>
+			<h:messages />
+			<h:panelGrid columns="2">
+				<h:outputLabel value="Name:" for="nane" />
+				<h:inputText id="name" label="Name" value="#{userBean.name}" required="true" />
+				<h:outputLabel value="e-Mail:" for="email" />
+				<h:inputText id="email" label="e-Mail" value="#{userBean.email}"/>
+				<h:outputLabel value="Password:" for="password" />
+				<h:inputSecret id="password" label="Password" value="#{userBean.password}" required="true" />
+				<h:outputLabel value="Confirm Password:" for="confirmPassword" />
+				<h:inputSecret id="confirmPassword" label="Confirm Password" value="#{userBean.confirmPassword}" required="true"/>
+				<h:outputText />
+				<h:commandButton action="#{userBean.save}" value="Send" />
+			</h:panelGrid>
+		</h:form>
+	</center>
+</h:body>
+
+
+</html>
