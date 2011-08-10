@@ -1,0 +1,12 @@
+          Projeto de Gerenciamento de Finanças
+-------------------------------------------------------------
+
+~proj a fim de estudo e testes de alguns frameworks~
+
+Recursos usados até o momento:
+JavaServer Faces, Hibernate e Spring-Security.
+
+Recursos a serem implementados:
+Ajax, Facelets, CSS, Cadastros com PrimeFaces e Milti-Idioma.
+
+Projeto baseado no livro "Programação Java para Web" da novatec.
